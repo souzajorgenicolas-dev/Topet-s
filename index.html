@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#ae0710">
+  <meta name="description"
+    content="Cardápio digital da Topet’s Lanches. Escolha seus lanches, monte seu pedido e continue pelo WhatsApp.">
+  <title>Topet’s Lanches | Cardápio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20261009-13">
+</head>
+
+<body>
+  <header class="topbar"><a class="brand" href="#inicio" aria-label="Topet's Lanches, início"><img
+        src="assets/topets-mascote.png"
+        alt="Mascote Topet’s Lanches"><span><b>TOPET’S</b><small>LANCHES</small></span></a>
+    <nav><a href="#inicio">Início</a><a href="#cardapio">Cardápio</a><a href="#sobre">Sobre</a></nav><button
+      class="cart-button" id="open-cart" aria-label="Abrir carrinho">Sacola <span id="cart-count">0</span></button>
+  </header>
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-copy"><span class="eyebrow">LANCHES • AÇAÍ • PETISCOS</span>
+        <h1>Seu próximo<br><em>favorito</em> está aqui.</h1>
+        <p>Do clássico ao caprichado: escolha seu pedido e receba tudo organizado no WhatsApp.</p><a
+          class="button button-yellow" href="#cardapio">Ver cardápio <span><span class="arrow-icon"
+              aria-hidden="true"><svg viewBox="0 0 24 24">
+                <path d="M7 7l10 10M8 17h9V8" />
+              </svg></span></span></a>
+        <div class="hero-note"><span>Feito na hora</span><i></i><span>Pedido fácil pelo WhatsApp</span></div>
+      </div>
+      <div class="hero-art">
+        <div class="hero-orbit orbit-one"></div>
+        <div class="hero-orbit orbit-two"></div><img src="assets/topets-mascote.png"
+          alt="Mascote da Topet’s segurando um hambúrguer"><span class="burst">BORA<br>MATAR<br>A FOME!</span>
+        <div class="hero-tag">TOPET’S<br><small>O sabor da casa</small></div>
+      </div>
+    </section>
+    <section class="menu-section" id="cardapio">
+      <div class="section-head">
+        <div><span class="eyebrow dark">ESCOLHA O SEU PEDIDO</span>
+          <h2>Cardápio <em>da casa</em></h2>
+          <p>Encontre seu favorito e monte a sacola.</p>
+        </div><label class="search"><span class="search-icon" aria-hidden="true"><svg viewBox="0 0 24 24">
+              <circle cx="10.8" cy="10.8" r="6.8" />
+              <path d="m16 16 5 5" />
+            </svg></span><input id="search" placeholder="Buscar no cardápio" aria-label="Buscar produto"></label>
+      </div>
+      <div id="categories" class="categories" aria-label="Categorias do cardápio"></div>
+      <div id="menu-grid" class="menu-grid"></div>
+      <p id="no-results" class="no-results" hidden>Nenhum produto encontrado. Tente outra busca.</p>
+    </section>
+    <section class="callout" id="sobre">
+      <div class="callout-mark">T</div>
+      <div><span class="eyebrow">TOPET’S LANCHES</span>
+        <h2>O bom pedido<br>começa por aqui.</h2>
+        <p>Escolha seus itens, revise a sacola e envie seu pedido pelo WhatsApp.</p>
+      </div><a class="button button-dark" href="#cardapio">Escolher agora <span><span class="arrow-icon"
+            aria-hidden="true"><svg viewBox="0 0 24 24">
+              <path d="M7 17L17 7M8 7h9v9" />
+            </svg></span></span></a>
+    </section>
+  </main>
+  <footer><a class="footer-brand" href="#inicio">TOPET’S <span>LANCHES</span></a>
+    <p>Cardápio digital • Pedidos pelo WhatsApp</p><a href="https://wa.me/5579998821022" target="_blank"
+      rel="noreferrer">(79) 99882-1022 <span class="arrow-icon" aria-hidden="true"><svg viewBox="0 0 24 24">
+          <path d="M7 17L17 7M8 7h9v9" />
+        </svg></span></a>
+  </footer>
+  <div class="overlay" id="overlay" hidden></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-label="Sua sacola" aria-hidden="true">
+    <div class="drawer-head">
+      <div><span class="eyebrow dark">SEU PEDIDO</span>
+        <h2>Sacola <span id="drawer-count">(0)</span></h2>
+      </div><button class="icon-button" id="close-cart" aria-label="Fechar sacola">×</button>
+    </div>
+    <div class="cart-scroll">
+      <div id="cart-items"></div>
+      <div id="empty-cart" class="empty-cart"><span><span class="empty-bag" aria-hidden="true"><svg viewBox="0 0 24 24">
+              <path d="M5 8h14l-1 13H6L5 8Z" />
+              <path d="M9 9V6a3 3 0 0 1 6 0v3" />
+            </svg></span></span><b>Sua sacola está vazia</b>
+        <p>Escolha algo gostoso no cardápio.</p><button class="text-button" id="back-menu">Ver cardápio</button>
+      </div>
+      <div class="totals" id="totals" hidden>
+        <div><span>Subtotal</span><b id="subtotal">R$ 0,00</b></div>
+        <div id="delivery-line" hidden><span>Entrega</span><b id="delivery-value"></b></div>
+        <div class="total-line"><span>Total</span><b id="total">R$ 0,00</b></div>
+      </div><button class="clear-button" id="clear-cart" hidden>Limpar sacola</button>
+      <form id="checkout" novalidate hidden>
+  <h3>Como vamos entregar?</h3>
+  <div class="form-field"><label for="customer">Nome completo</label><input id="customer" name="customer" autocomplete="name" placeholder="Seu nome completo"><small class="field-error" data-error="customer"></small></div>
+  <div class="form-field"><label for="phone">Telefone para contato</label><input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="(79) 99999-9999" maxlength="16"><small class="field-error" data-error="phone"></small></div>
+  <div class="segmented"><label><input type="radio" name="fulfillment" value="delivery" checked><span>Entrega</span></label><label><input type="radio" name="fulfillment" value="pickup"><span>Retirada</span></label></div>
+  <div id="delivery-fields"><p class="form-section-label">Endereço de entrega</p><div class="address-grid">
+    <div class="form-field field-street"><label for="street">Rua ou avenida</label><input id="street" name="street" autocomplete="address-line1" placeholder="Nome da rua ou avenida"><small class="field-error" data-error="street"></small></div>
+    <div class="form-field field-number"><label for="house-number">Número</label><input id="house-number" name="houseNumber" placeholder="Nº ou unidade"><small class="field-error" data-error="houseNumber"></small></div>
+    <div class="form-field field-district"><label for="district">Bairro</label><select id="district" name="district"><option value="">Selecione seu bairro</option></select><small class="field-error" data-error="district"></small><small id="neighborhood-help" class="field-help"></small><div class="form-field" id="other-district-field" hidden><label for="other-district">Digite o nome do bairro</label><input id="other-district" name="otherDistrict" placeholder="Nome do bairro"><small class="field-error" data-error="otherDistrict"></small></div></div>
+    <div class="form-field field-residence"><label for="residence-type">Tipo de residência</label><select id="residence-type" name="residenceType"><option value="">Selecione</option><option value="Casa">Casa</option><option value="Apartamento">Apartamento</option></select><small class="field-error" data-error="residenceType"></small></div>
+    <div class="form-field field-unit" id="apartment-field" hidden><label for="apartment-number">Número do apartamento</label><input id="apartment-number" name="apartmentNumber" placeholder="Ex.: 302" inputmode="numeric"><small class="field-error" data-error="apartmentNumber"></small></div>
+    <div class="form-field field-block" id="block-field" hidden><label for="block">Bloco</label><input id="block" name="block" placeholder="Ex.: 3"><small class="field-error" data-error="block"></small></div>
+    <div class="form-field field-complement"><label for="complement">Complemento <span>(opcional)</span></label><input id="complement" name="complement" placeholder="Casa, fundos, etc."></div>
+    <div class="form-field field-reference"><label for="reference">Ponto de referência <span>(opcional)</span></label><input id="reference" name="reference" placeholder="Próximo a..."></div>
+  </div></div>
+  <div class="form-field"><label for="payment">Forma de pagamento</label><select id="payment" name="payment"><option value="">Selecione</option><option>Pix</option><option>Dinheiro</option><option>Cartão de crédito</option><option>Cartão de débito</option></select><small class="field-error" data-error="payment"></small></div>
+  <div id="cash-change-fields" hidden><label class="check-option"><input type="checkbox" id="needs-change" name="needsChange"> Preciso de troco</label><div class="form-field" id="change-wrap" hidden><label for="change">Troco para</label><input id="change" name="change" type="text" inputmode="decimal" autocomplete="off" placeholder="Ex.: 50,00"><small class="field-error" data-error="change"></small><small id="change-consult-note" class="field-help" hidden>O troco será calculado sem a taxa de entrega, que será consultada com a loja.</small></div></div>
+  <div class="form-field"><label for="order-notes">Observações do pedido <span>(opcional)</span></label><textarea id="order-notes" name="notes" rows="2" placeholder="Opcional"></textarea></div>
+  <p id="checkout-error" class="checkout-error" role="alert" hidden></p>
+  <button class="button button-yellow checkout-button" type="submit">Continuar no WhatsApp <span><span class="arrow-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M8 7h9v9"/></svg></span></span></button><small class="checkout-hint">Você poderá revisar e enviar a mensagem pelo WhatsApp.</small>
+</form>
+    </div>
+  </aside>
+  <div class="product-modal" id="product-modal" hidden role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-card"><button class="icon-button modal-close" id="close-modal" aria-label="Fechar">×</button><span
+        class="eyebrow dark" id="modal-category"></span>
+      <h2 id="modal-title"></h2>
+      <p id="modal-description"></p>
+      <div id="modal-toppings"></div><label class="modal-notes">Observação<textarea id="item-notes" rows="2"
+          placeholder="Ex.: sem cebola"></textarea></label>
+      <div class="modal-footer"><b id="modal-price"></b><button class="button button-yellow" id="confirm-add">Adicionar
+          à sacola</button></div>
+    </div>
+  </div>
+  <script src="data.js?v=20261009-13"></script>
+  <script src="supabase-config.js?v=1"></script>
+  <script src="supabase-api.js?v=2"></script>
+  <script src="supabase-data.js?v=1"></script>
+  <script type="module" src="app.js?v=20261011-2"></script>
+</body>
+
+</html>
